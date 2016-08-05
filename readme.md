@@ -80,7 +80,8 @@ Short description how to connect to MySQL databases in JavaEE applications runni
      </persistence-unit>
     </persistence>
     ```
-2. Use connection
+2. Use connection. You should have a MySQL table named `user` . The example code expects a column `id` and a column `name` 
+
     ``` java
     import javax.annotation.Resource;
     import javax.faces.bean.ManagedBean;
