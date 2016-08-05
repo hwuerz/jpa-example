@@ -1,9 +1,11 @@
 package de.hwuerz.example.hibernate;
 
+import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.*;
 import java.util.List;
 
 /**
@@ -17,9 +19,21 @@ public class Controller {
     @PersistenceContext(unitName = "MyPU")
     private EntityManager entityManager;
 
+    @Resource
+    private UserTransaction utx;
+
     @SuppressWarnings("unchecked")
-    public List<MyTable> get() {
-        return entityManager.createNativeQuery("select * from MyTable", MyTable.class).getResultList();
+    public List<User> get() {
+        return entityManager.createNativeQuery("select * from User", User.class).getResultList();
+    }
+
+    public void add() throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        User user = new User();
+        user.setName("New User");
+
+        utx.begin();
+        entityManager.persist(user);
+        utx.commit();
     }
 
 }

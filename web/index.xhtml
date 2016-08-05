@@ -9,5 +9,9 @@
       <ui:repeat value="#{controller.get()}" var="entry">
          <h:outputLabel value="#{entry.name}"/><br/>
       </ui:repeat>
+
+      <h:form>
+         <h:commandButton action="#{controller.add}" />
+      </h:form>
    </f:view>
 </html>
