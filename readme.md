@@ -119,3 +119,4 @@ Short description how to connect to MySQL databases in JavaEE applications runni
     }
     ```
     
+For more info see [http://www.skindd.co.uk/wildfly-mysql-datasource/](http://www.skindd.co.uk/wildfly-mysql-datasource/)
