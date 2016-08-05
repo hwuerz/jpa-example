@@ -35,5 +35,4 @@ public class Controller {
         entityManager.persist(user);
         utx.commit();
     }
-
 }
