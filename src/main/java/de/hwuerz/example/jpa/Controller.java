@@ -1,4 +1,4 @@
-package de.hwuerz.example.hibernate;
+package de.hwuerz.example.jpa;
 
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;

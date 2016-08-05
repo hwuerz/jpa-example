@@ -1,4 +1,4 @@
-package de.hwuerz.example.hibernate;
+package de.hwuerz.example.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
