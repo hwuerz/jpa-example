@@ -1,8 +1,9 @@
 package de.hwuerz.example.jpa;
 
-import javax.annotation.Resource;
+import javax.ejb.Stateful;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.*;
@@ -13,14 +14,16 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
+@Stateful
+@Named
 public class Controller {
 
 
     @PersistenceContext(unitName = "MyPU")
     private EntityManager entityManager;
 
-    @Resource
-    private UserTransaction utx;
+//    @Resource
+//    private UserTransaction utx;
 
     @SuppressWarnings("unchecked")
     public List<User> get() {
@@ -29,10 +32,14 @@ public class Controller {
 
     public void add() throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
         User user = new User();
-        user.setName("New User");
+        user.setName("New User2");
 
-        utx.begin();
+//        utx.begin();
         entityManager.persist(user);
-        utx.commit();
+//        utx.commit();
+    }
+
+    public void change() {
+        get().forEach(user -> user.setName(user.getName() + "_"));
     }
 }

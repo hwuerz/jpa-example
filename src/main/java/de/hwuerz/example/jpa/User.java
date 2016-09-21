@@ -1,8 +1,6 @@
 package de.hwuerz.example.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Hendrik on 29.07.2016.
@@ -31,5 +29,9 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void change() {
+        name = name + "_";
     }
 }
